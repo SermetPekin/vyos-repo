@@ -33,7 +33,7 @@ install_github("SermetPekin/vyos")
 set_api_key( "ABCDEFGHIJKLMOP" , "evds" , "env" )
 set_api_key( "ABCDEFGHIJKLMOP" , "fred" , "env" )
 # or
-set_api_key( "ABCDEFGHIJKLMOP" , "fred" , "file" )
+set_api_key( "ABCDEFGHIJKLMOP" , "evds" , "file" )
 set_api_key( "ABCDEFGHIJKLMOP" , "fred" , "file" )
 
 ```
