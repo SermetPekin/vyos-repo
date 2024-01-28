@@ -20,7 +20,7 @@ and FRED API of FED (Federal Reserve Bank).
 ### Development version
 ``` r
 library(devtools)
-install_github("SermetPekin/vyos")
+install_github("SermetPekin/vyos-repo")
 ```
 
 ## Usage

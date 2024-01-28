@@ -1,51 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>/404.html</loc>
+    <loc>https://sermetpekin.github.io/vyos-repo/404.html</loc>
   </url>
   <url>
-    <loc>/LICENSE-text.html</loc>
+    <loc>https://sermetpekin.github.io/vyos-repo/LICENSE-text.html</loc>
   </url>
   <url>
-    <loc>/LICENSE.html</loc>
+    <loc>https://sermetpekin.github.io/vyos-repo/LICENSE.html</loc>
   </url>
   <url>
-    <loc>/authors.html</loc>
+    <loc>https://sermetpekin.github.io/vyos-repo/authors.html</loc>
   </url>
   <url>
-    <loc>/index.html</loc>
+    <loc>https://sermetpekin.github.io/vyos-repo/index.html</loc>
   </url>
   <url>
-    <loc>/news/index.html</loc>
+    <loc>https://sermetpekin.github.io/vyos-repo/news/index.html</loc>
   </url>
   <url>
-    <loc>/reference/excel.html</loc>
+    <loc>https://sermetpekin.github.io/vyos-repo/reference/excel.html</loc>
   </url>
   <url>
-    <loc>/reference/get_series.html</loc>
+    <loc>https://sermetpekin.github.io/vyos-repo/reference/get_series.html</loc>
   </url>
   <url>
-    <loc>/reference/grapes-inn-grapes.html</loc>
+    <loc>https://sermetpekin.github.io/vyos-repo/reference/grapes-inn-grapes.html</loc>
   </url>
   <url>
-    <loc>/reference/index.html</loc>
+    <loc>https://sermetpekin.github.io/vyos-repo/reference/index.html</loc>
   </url>
   <url>
-    <loc>/reference/inn.html</loc>
+    <loc>https://sermetpekin.github.io/vyos-repo/reference/inn.html</loc>
   </url>
   <url>
-    <loc>/reference/lag_df.html</loc>
+    <loc>https://sermetpekin.github.io/vyos-repo/reference/lag_df.html</loc>
   </url>
   <url>
-    <loc>/reference/lag_df2.html</loc>
+    <loc>https://sermetpekin.github.io/vyos-repo/reference/lag_df2.html</loc>
   </url>
   <url>
-    <loc>/reference/remove_na_safe.html</loc>
+    <loc>https://sermetpekin.github.io/vyos-repo/reference/remove_na_safe.html</loc>
   </url>
   <url>
-    <loc>/reference/set_api_key.html</loc>
+    <loc>https://sermetpekin.github.io/vyos-repo/reference/set_api_key.html</loc>
   </url>
   <url>
-    <loc>/reference/template_test.html</loc>
+    <loc>https://sermetpekin.github.io/vyos-repo/reference/template_test.html</loc>
   </url>
 </urlset>

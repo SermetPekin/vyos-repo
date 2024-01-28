@@ -7,8 +7,8 @@ Authors@R: c(
     person("Sermet", "Pekin", , "sermetpekin@gmail.com", role = c("aut", "cre" , "cph"))
   )
 Maintainer: Sermet Pekin <sermetpekin@gmail.com>
-URL: https://github.com/SermetPekin/vyos, https://sermetpekin.github.io/vyos-repo/
-BugReports: https://github.com/SermetPekin/vyos/issues
+URL: https://github.com/SermetPekin/vyos-repo, https://sermetpekin.github.io/vyos-repo/
+BugReports: https://github.com/SermetPekin/vyos-repo/issues
 Description: Interface for multiple data sources such as EDDS API of Central Bank of the Republic of Türkiye and FRED API of Federal Reserve Bank.
     It provides caching ability with selection of periods in order to increase speed and efficiency of the requests. 
     Combines datasets requested from different sources which helps users by combining when the data has common frequencies. 
@@ -38,6 +38,6 @@ Suggests:
     devtools,
     testthat
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.1
 Encoding: UTF-8
 Config/testthat/edition: 3
