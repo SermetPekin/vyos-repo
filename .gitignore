@@ -13,4 +13,5 @@ caches_vyos/
 tests/.DS_Store
 *.Rcheck
 caches_vyos/
-CRAN-SUBMISSION
+*CRAN-SUBMISSION
+CRAN-SUBMISSION*.*
