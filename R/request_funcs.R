@@ -109,12 +109,10 @@ check_freq_only_evds_series<-function(currentObj , urlParts ){
    # start_date
    .date = currentObj$start_date
 
-   urlParts$startDate = sprintf( "%s-%s-%s" ,
-                                 lubridate::day(.date) ,
-                                 lubridate::month (.date) ,
-                                 lubridate::year( .date ) )
+   urlParts$startDate = date_to_str_1(.date )
    urlParts
 }
+
 
 createUrlForSeries<-function(currentObj){
     if(currentObj$name == "fred" ) return(create_url_for_series_fred( currentObj ))

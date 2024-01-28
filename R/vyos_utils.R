@@ -1,6 +1,0 @@
-
-create_params_list<-function(dots ){
-  dots$version = get_current_package_vers()
-  dots$cache_name = create_cache_name_from_list(dots )
-  dots
-}
