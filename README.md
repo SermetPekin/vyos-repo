@@ -1,6 +1,6 @@
 
 ## vyos
-[![R-CMD-check](https://github.com/SermetPekin/vyos/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/SermetPekin/vyos/actions/workflows/R-CMD-check.yaml)
+[![R-CMD-check](https://github.com/SermetPekin/vyos-repo/actions/workflows/R_CMD_check.yml/badge.svg)](https://github.com/SermetPekin/vyos-repo/actions/workflows/R_CMD_check.yml)
 
 ## Overview
 
