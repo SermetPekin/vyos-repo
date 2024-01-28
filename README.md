@@ -12,9 +12,10 @@ and FRED API of FED (Federal Reserve Bank).
 ## Installation
 
 ``` r
-
 # install.packages("vyos")
+
 ```
+
 
 ### Development version
 ``` r
@@ -23,6 +24,20 @@ install_github("SermetPekin/vyos")
 ```
 
 ## Usage
+
+### set_api_key
+
+
+
+``` r
+set_api_key( "ABCDEFGHIJKLMOP" , "evds" , "env" )
+set_api_key( "ABCDEFGHIJKLMOP" , "fred" , "env" )
+# or
+set_api_key( "ABCDEFGHIJKLMOP" , "fred" , "file" )
+set_api_key( "ABCDEFGHIJKLMOP" , "fred" , "file" )
+
+```
+
 ###  get_series 
 
 ``` r
