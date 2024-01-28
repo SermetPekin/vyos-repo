@@ -10,6 +10,7 @@ c_all <- function(.test= F ){
   if(.test)
    devtools::test()
 }
+
 #========================================================================= clear
 clear <- function() {
   items <-  ls(all.names = TRUE , envir = rlang::global_env())
