@@ -9,8 +9,35 @@ Current version is able to connect to APIs of EDDS of CBRT (Central Bank of the 
 and FRED API of FED (Federal Reserve Bank). 
 
     get_series() gets data from providers. This function will create and object with requests and results and combined data frame from what user specified. 
+## Installation
+
+``` r
+# install.packages("vyos")
+
+```
+
+
+### Development version
+``` r
+library(devtools)
+install_github("SermetPekin/vyos")
+```
 
 ## Usage
+
+### set_api_key
+
+
+
+``` r
+set_api_key( "ABCDEFGHIJKLMOP" , "evds" , "env" )
+set_api_key( "ABCDEFGHIJKLMOP" , "fred" , "env" )
+# or
+set_api_key( "ABCDEFGHIJKLMOP" , "evds" , "file" )
+set_api_key( "ABCDEFGHIJKLMOP" , "fred" , "file" )
+
+```
+
 ###  get_series 
 
 ``` r
