@@ -1,0 +1,27 @@
+
+useDynLib(vyos, .registration=TRUE)
+importFrom(Rcpp, evalCpp)
+
+
+
+export(get_series)
+export(set_api_key)
+export(lag_df)
+export(remove_na_safe)
+export(template_test)
+export(excel)
+export(inn)
+export(`%inn%`)
+
+
+
+
+
+
+importFrom("utils", "read.delim2")
+importFrom(magrittr, `%>%`)
+importFrom(rlang, `%||%`)
+importFrom("utils", "installed.packages")
+
+
+

@@ -1,0 +1,43 @@
+Package: vyos
+Type: Package
+Title: Interface for Multiple Data Providers EDDS and FRED
+Version: 1.0.0
+Date: 2024-01-27
+Authors@R: c(
+    person("Sermet", "Pekin", , "sermetpekin@gmail.com", role = c("aut", "cre" , "cph"))
+  )
+Maintainer: Sermet Pekin <sermetpekin@gmail.com>
+URL: https://github.com/SermetPekin/vyos
+BugReports: https://github.com/SermetPekin/vyos/issues
+Description: Interface for multiple data sources such as EDDS API of Central Bank of the Republic of Türkiye and FRED API of Federal Reserve Bank.
+    It provides caching ability with selection of periods in order to increase speed and efficiency of the requests. 
+    Combines datasets requested from different sources which helps users by combining when the data has common frequencies. 
+    While combining data frame when possible it also keeps all requested data available as separate data frames to increase efficiency.
+License: MIT + file LICENSE
+LinkingTo: Rcpp
+Depends:
+    R (>= 3.4.3),
+    Rcpp
+Imports:
+    crayon, 
+    digest,
+    dplyr,
+    httr,
+    httr2,
+    glue,
+    jsonlite,
+    lubridate,
+    magrittr,
+    purrr,
+    rlang,
+    rlist,
+    stringr,
+    tibble
+Suggests: 
+    writexl ,
+    devtools,
+    testthat
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3
+Encoding: UTF-8
+Config/testthat/edition: 3
