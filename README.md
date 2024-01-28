@@ -8,7 +8,7 @@ vyos package is an interface to make requests from data providers.
 Current version is able to connect to APIs of EDDS of CBRT (Central Bank of the Republic of Türkiye)
 and FRED API of FED (Federal Reserve Bank). 
 
-    get_series() gets data from providers. This function will create and object with requests and results and combined data frame from what user specified. 
+
 ## Installation
 
 ``` r
