@@ -14,3 +14,4 @@ tests/.DS_Store
 *.Rcheck
 caches_vyos/
 man/
+CRAN-SUBMISSION
