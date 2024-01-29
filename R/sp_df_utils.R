@@ -1,30 +1,60 @@
 
-remove_column <- function(df , column_name) {
-  if (column_name  %in% colnames(df)) {
-    df <- df[ , !names(df) %in% c(column_name)]
-  }
-  df
-}
-remove_columns <-function (df, column_names){
+#' Remove a column or columns from data.frame
+#'
+#' @param df data.frame or tibble
+#' @param column_names column name or column names as a character vector
+#' @param verbose bool gives extra info when removed a column.
+#' @usage remove_columns(df, column_names , verbose = T )
+#' @return data.frame
+#' @export
+#'
+#' @examples
+#'  df <- remove_columns(cars, "speed")
+#'
+remove_columns <- function (df, column_names , verbose = T ){
   for (column_name in column_names) {
-    if(!column_name %inn% df){
-        # message_debug( glue::glue(" { column_name}
-        #                       not found passing ... \n\r
-        #                       ") )
-    }else{
-        .blue(" removing ...{column_name}\n\r")
-      try({
-        df <- remove_column(df, column_name)
-      })
+    if(column_name %inn% df){
+        if(verbose)
+            .blue(" removing ...{column_name}\n\r")
+        try({
+            df <- remove_column(df, column_name)
+         })
     }
   }
   df
 }
+
+
+remove_column <- function(df , column_name) {
+
+    if( !  column_name  %in% colnames(df) )
+        return (df )
+
+    valid_cols <- colnames(df )
+    valid_cols <- valid_cols[valid_cols !=  column_name ]
+
+    df <- df[ , valid_cols ]
+
+    if( length( valid_cols  ) ==  1   ){
+
+        liste <- list()
+        liste[[ valid_cols ]] <- df
+        df <- as.data.frame(liste )
+    }
+
+    df
+}
+
+
 #' remove_na_safe
+#' @description
+#' removes rows from the beginning and end of data.frame provided that all columns
+#' are NA.
 #'
 #' @param df data.frame to remove na rows from the beginning and from the end
 #' @param verbose give detailed info while removing NA values
 #'
+#' @usage remove_na_safe(df , verbose = F )
 #' @return data.frame
 #' @export
 #' @examples

@@ -2,7 +2,8 @@
 % Please edit documentation in R/excel.R
 \name{excel}
 \alias{excel}
-\title{excel}
+\title{Creates an excel file from a data.frame or a list of data.frame or from
+vyos_GETPREP object.}
 \usage{
 excel(
   dfs = null,
@@ -30,7 +31,8 @@ excel(
 object or list of data frame back
 }
 \description{
-excel
+The excel() function creates an excel file according to the object given.
+data.frame or List of data frame or vyos_GETPREP object can be passed..
 }
 \examples{
 \dontrun{

@@ -40,6 +40,12 @@
     <loc>https://sermetpekin.github.io/vyos-repo/reference/lag_df2.html</loc>
   </url>
   <url>
+    <loc>https://sermetpekin.github.io/vyos-repo/reference/print.vyos_GETPREP.html</loc>
+  </url>
+  <url>
+    <loc>https://sermetpekin.github.io/vyos-repo/reference/remove_columns.html</loc>
+  </url>
+  <url>
     <loc>https://sermetpekin.github.io/vyos-repo/reference/remove_na_safe.html</loc>
   </url>
   <url>
@@ -47,5 +53,8 @@
   </url>
   <url>
     <loc>https://sermetpekin.github.io/vyos-repo/reference/template_test.html</loc>
+  </url>
+  <url>
+    <loc>https://sermetpekin.github.io/vyos-repo/reference/vyos-build-checks.html</loc>
   </url>
 </urlset>

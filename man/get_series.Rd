@@ -2,7 +2,8 @@
 % Please edit documentation in R/get_series.R
 \name{get_series}
 \alias{get_series}
-\title{get_series}
+\title{Requests data from multiple data sources.
+EDDS API and FRED API at this version.}
 \usage{
 get_series(
   index = null,
@@ -42,7 +43,12 @@ get_series(
 vyos_GETPREP S3 object
 }
 \description{
-get_series
+The get_series() function requests data from data sources.
+when more than one index was given as a character vector or a string template
+it requests all items individually from corresponding sources by figuring out
+from the format of item given.
+Combines a data frame when there is a common frequencies. Returns all data
+both as a combined data frame and also individual data frames.
 }
 \examples{
 \dontrun{

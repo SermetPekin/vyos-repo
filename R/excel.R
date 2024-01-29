@@ -1,7 +1,10 @@
 
-# ............................................ excel
-#' excel
-#'
+
+#' Creates an excel file from a data.frame or a list of data.frame or from
+#' vyos_GETPREP object.
+#' @description
+#' The excel() function creates an excel file according to the object given.
+#' data.frame or List of data frame or vyos_GETPREP object can be passed..
 #' @param dfs object or list of data frame to write
 #' @param file_name file name to save
 #' @param folder folder to save file

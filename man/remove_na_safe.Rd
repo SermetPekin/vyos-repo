@@ -4,7 +4,7 @@
 \alias{remove_na_safe}
 \title{remove_na_safe}
 \usage{
-remove_na_safe(df, verbose = F)
+remove_na_safe(df , verbose = F )
 }
 \arguments{
 \item{df}{data.frame to remove na rows from the beginning and from the end}
@@ -15,7 +15,8 @@ remove_na_safe(df, verbose = F)
 data.frame
 }
 \description{
-remove_na_safe
+removes rows from the beginning and end of data.frame provided that all columns
+are NA.
 }
 \examples{
 

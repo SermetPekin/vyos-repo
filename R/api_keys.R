@@ -64,7 +64,7 @@ show_usage<-function(func_name = "set_api_key" ,
 #'
 #' @param key api key of the source
 #' @param source_name evds or fred
-#' @param .opt choice of later usage. env or file should be given to
+#' @param option choice of later usage. env or file should be given to
 #' save api key for later use. Default is env which
 #' saves api key as environment variable.
 #' if `env` default value is selected it will save api key
@@ -83,7 +83,7 @@ show_usage<-function(func_name = "set_api_key" ,
 #' }
 set_api_key<-function(key = null  ,
                       source_name = null   ,
-                      .opt = c("env" , "file")   ,
+                      option = c("env" , "file")   ,
                       ...  ){
   if(is.null(key) || is.null( source_name )){
     show_usage( "set_api_key" ,
@@ -92,10 +92,10 @@ set_api_key<-function(key = null  ,
     stop()
   }
    # check_required(key)
-  .opt = match.arg(.opt )
+    option = match.arg(option )
   g = glue::glue
   check_api_key_works(source_name  , key )
-  if( identical( .opt , "env" )  ){
+  if( identical( option , "env" )  ){
     key_name <-api_key_name_format(source_name  )
     if( is_( source_name , "evds"  ) ){
       Sys.setenv("evds__APIKEY" = toString(key))
@@ -111,7 +111,7 @@ set_api_key<-function(key = null  ,
                       ") )
   }
 
-  if(  identical( .opt , "file" )  ){
+  if(  identical( option , "file" )  ){
     file_name = default_file_name_for_api_keys(source_name)
     key_name <-api_key_name_format(source_name  )
     folder_api_key <- get_folder_api_key()

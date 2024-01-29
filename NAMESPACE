@@ -12,7 +12,7 @@ export(template_test)
 export(excel)
 export(inn)
 export(`%inn%`)
-
+export(remove_columns)
 
 
 S3method(print,vyos_GETPREP)
