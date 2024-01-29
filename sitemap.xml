@@ -51,4 +51,7 @@
   <url>
     <loc>https://sermetpekin.github.io/vyos-repo/reference/template_test.html</loc>
   </url>
+  <url>
+    <loc>https://sermetpekin.github.io/vyos-repo/reference/vyos-build-checks.html</loc>
+  </url>
 </urlset>
