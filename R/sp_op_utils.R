@@ -9,6 +9,7 @@
 #' @export
 #'
 #' @examples
+#'  .check = inn( "a" , list( a = 1 : 5 ) )
 inn <- function(x , table ){
     if( is.character( table )  || is.numeric( table )){
         return( match(x, table, nomatch = 0L) > 0L)
