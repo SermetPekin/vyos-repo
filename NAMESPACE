@@ -15,7 +15,7 @@ export(`%inn%`)
 
 
 
-
+S3method(print,vyos_GETPREP)
 
 
 importFrom("utils", "read.delim2")
