@@ -1,5 +1,19 @@
 
 
+#' print.vyos_GETPREP
+#' Generic method for S3 vyos_GETPREP object
+#' @param x S3 vyos_GETPREP object
+#' @param ... further arguments passed to or from other methods.
+#'
+#' @return S3 vyos_GETPREP object
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#'
+#' obj <- get_series(template_test() )
+#' print(obj )
+#' }
 print.vyos_GETPREP<- function(x , ... ){
   g <- glue::glue
   start_date <- to_string( x$start_date )

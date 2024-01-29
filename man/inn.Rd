@@ -19,3 +19,6 @@ bool value TRUE if it exists FALSE if it does not
 inn
 checks if the second parameter includes the first one as a value or a column name or a name
 }
+\examples{
+ .check = inn( "a" , list( a = 1 : 5 ) )
+}

@@ -11,6 +11,15 @@ remove_na_safe(df, verbose = F)
 
 \item{verbose}{give detailed info while removing NA values}
 }
+\value{
+data.frame
+}
 \description{
 remove_na_safe
+}
+\examples{
+
+df <- data.frame( a = c( NA, 2: 7 , NA ) ,
+                  b = c( NA, NA, 5, NA, 12, NA, 8, 9 ) )
+df2 <- remove_na_safe( df )
 }

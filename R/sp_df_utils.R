@@ -25,9 +25,13 @@ remove_columns <-function (df, column_names){
 #' @param df data.frame to remove na rows from the beginning and from the end
 #' @param verbose give detailed info while removing NA values
 #'
-#' @return
+#' @return data.frame
 #' @export
+#' @examples
 #'
+#' df <- data.frame( a = c( NA, 2: 7 , NA ) ,
+#'                   b = c( NA, NA, 5, NA, 12, NA, 8, 9 ) )
+#' df2 <- remove_na_safe( df )
 remove_na_safe <- function(df , verbose = F) {
 
   df <-   df_check_remove(df , verbose = verbose)
