@@ -19,24 +19,25 @@ create_evds_url <- function(type = c( "subject" ,
   )
   liste[[ type ]]
 }
-get_evds_table_names_with_konu_num <- function(subject_num = 5 ,
+
+get_evds_table_names_with_subject_num <- function(subject_num = 5 ,
                                                cache = F   ){
   url = create_evds_url( "datagroups" , subject_num )
-  gelen<-request_httr2_helper(url ,  cache )
-  if( !  is_response(gelen))
+  response <-request_httr2_helper(url ,  cache )
+  if( !  is_response(response))
     return (false )
-  contentList <- gelen %>% httr2::resp_body_json()
-  sonuc <-   convert_list_df_evds2(contentList)
-  sonuc <- list( raw = sonuc ,
-                 table_names = sonuc$DATAGROUP_CODE  ,
-                 aciklama = sonuc$DATAGROUP_NAME  )
-  invisible( sonuc)
+  contentList <- response %>% httr2::resp_body_json()
+
+  result  <-   convert_list_df_evds2(contentList)
+
+  result
+
 }
 # ....................................................... get_evds_table_info_api
-get_evds_konular_list_api<-function(  cache = T ){
+get_evds_subject_list_api<-function(  cache = T ){
   url <- create_evds_url( "subject")
-  gelen<-request_httr2_helper(url , cache )
-  if(is_false_false(gelen ))
-    return( false )
-  gelen %>% httr2::resp_body_json()  %>% convert_list_df_evds2
+  response<-request_httr2_helper(url , cache )
+  if( !  is_response(response))
+      return (false )
+  response %>% httr2::resp_body_json()  %>% convert_list_df_evds2
 }
