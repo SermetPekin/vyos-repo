@@ -32,7 +32,7 @@ data.frame or List of data frame or vyos_GETPREP object can be passed.."><!-- ma
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off"></form>
 
       <ul class="navbar-nav"><li class="nav-item">
-  <a class="external-link nav-link" href="https://github.com/SermetPekin/vyos-repo/" aria-label="github">
+  <a class="external-link nav-link" href="https://github.com/spvyos/vyos/" aria-label="github">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -46,7 +46,7 @@ data.frame or List of data frame or vyos_GETPREP object can be passed.."><!-- ma
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="" class="logo" alt=""><h1>Creates an excel file from a data.frame or a list of data.frame or from
 vyos_GETPREP object.</h1>
-      <small class="dont-index">Source: <a href="https://github.com/SermetPekin/vyos-repo/blob/HEAD/R/excel.R" class="external-link"><code>R/excel.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/spvyos/vyos/blob/HEAD/R/excel.R" class="external-link"><code>R/excel.R</code></a></small>
       <div class="d-none name"><code>excel.Rd</code></div>
     </div>
 
@@ -61,7 +61,7 @@ data.frame or List of data frame or vyos_GETPREP object can be passed..</p>
 <span>  dfs <span class="op">=</span> <span class="va">null</span>,</span>
 <span>  file_name <span class="op">=</span> <span class="va">null</span>,</span>
 <span>  folder <span class="op">=</span> <span class="va">null</span>,</span>
-<span>  .debug <span class="op">=</span> <span class="cn">T</span>,</span>
+<span>  .debug <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  env <span class="op">=</span> <span class="fu">rlang</span><span class="fu">::</span><span class="fu"><a href="https://rlang.r-lib.org/reference/stack.html" class="external-link">caller_env</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>  <span class="va">...</span></span>
 <span><span class="op">)</span></span></code></pre></div>
@@ -97,13 +97,13 @@ data.frame or List of data frame or vyos_GETPREP object can be passed..</p>
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     
 
-<p>object or list of data frame back</p>
+<p>it returns object or list of data frame back</p>
     </div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
-<span class="r-in"><span><span class="fu">excel</span><span class="op">(</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>a <span class="op">=</span> <span class="fl">1</span> <span class="op">:</span> <span class="fl">3</span> <span class="op">)</span> , file_name <span class="op">=</span> <span class="st">"test1.xlsx"</span> , folder <span class="op">=</span> <span class="st">"."</span> <span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">excel</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>a <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span>, file_name <span class="op">=</span> <span class="st">"test1.xlsx"</span>, folder <span class="op">=</span> <span class="st">"."</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
     </div>

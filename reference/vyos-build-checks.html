@@ -28,7 +28,7 @@
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off"></form>
 
       <ul class="navbar-nav"><li class="nav-item">
-  <a class="external-link nav-link" href="https://github.com/SermetPekin/vyos-repo/" aria-label="github">
+  <a class="external-link nav-link" href="https://github.com/spvyos/vyos/" aria-label="github">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -41,7 +41,7 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="" class="logo" alt=""><h1>Dummy examples to check build step</h1>
-      <small class="dont-index">Source: <a href="https://github.com/SermetPekin/vyos-repo/blob/HEAD/R/examples_for_build_step.R" class="external-link"><code>R/examples_for_build_step.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/spvyos/vyos/blob/HEAD/R/examples_for_build_step.R" class="external-link"><code>R/examples_for_build_step.R</code></a></small>
       <div class="d-none name"><code>vyos-build-checks.Rd</code></div>
     </div>
 
@@ -54,8 +54,9 @@
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">obj</span>  <span class="op">&lt;-</span> <span class="fu"><a href="get_series.html">get_series</a></span><span class="op">(</span> <span class="fu"><a href="template_test.html">template_test</a></span><span class="op">(</span><span class="op">)</span> , debug <span class="op">=</span> <span class="cn">TRUE</span>  <span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">x</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span> <span class="va">obj</span> <span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">obj</span> <span class="op">&lt;-</span> <span class="fu"><a href="get_series.html">get_series</a></span><span class="op">(</span><span class="fu"><a href="template_test.html">template_test</a></span><span class="op">(</span><span class="op">)</span>, debug <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Verbose mode is now OFF. You may call `verbose_on()` anytime to enable it.</span></span>
+<span class="r-in"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">obj</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB;">======================================vyos_GETPREP=======</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB;">  status      : ready_to_run</span></span>
@@ -66,11 +67,11 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB;">    </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB;">  start_date  : 2000-01-01</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB;">  end_date    : 2100-01-01</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB;">                   status [ready_to_run]</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB;">  status [ready_to_run]</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  lines</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  each line corresponds to a different set of func and data</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  lines$data</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ===================</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  ! each line corresponds to a different set of func and data</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     data can be reached as below</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         --&gt; <span style="color: #BB0000;">obj$lines$data</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB;">  </span><span style="color: #949494;"># A tibble: 3 × 5</span></span>
@@ -79,8 +80,9 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span><span style="color: #0000BB;"> UNRATE       fred   series fred (series) null </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span><span style="color: #0000BB;"> bie_abreserv evds   table  evds (table)  null </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span><span style="color: #0000BB;"> TP.AB.B1     evds   series evds (series) null </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   (combined) data</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB;"> data</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB;">===================</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB;">  (combined) data</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     a combined data frame will be constructed</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     combined data can be reached as</span>
@@ -89,11 +91,9 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> =========================================================</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"><span><span class="kw">if</span><span class="op">(</span> <span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/class.html" class="external-link">inherits</a></span><span class="op">(</span><span class="va">x</span> , <span class="st">"vyos_GETPREP"</span><span class="op">)</span> <span class="op">)</span> <span class="op">{</span></span></span>
-<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/stop.html" class="external-link">stop</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/class.html" class="external-link">inherits</a></span><span class="op">(</span><span class="va">x</span>, <span class="st">"vyos_GETPREP"</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/stop.html" class="external-link">stop</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">}</span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

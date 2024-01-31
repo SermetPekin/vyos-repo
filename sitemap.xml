@@ -19,6 +19,9 @@
     <loc>https://sermetpekin.github.io/vyos-repo/news/index.html</loc>
   </url>
   <url>
+    <loc>https://sermetpekin.github.io/vyos-repo/reference/change_cache_folder.html</loc>
+  </url>
+  <url>
     <loc>https://sermetpekin.github.io/vyos-repo/reference/excel.html</loc>
   </url>
   <url>
@@ -53,6 +56,12 @@
   </url>
   <url>
     <loc>https://sermetpekin.github.io/vyos-repo/reference/template_test.html</loc>
+  </url>
+  <url>
+    <loc>https://sermetpekin.github.io/vyos-repo/reference/verbose_off.html</loc>
+  </url>
+  <url>
+    <loc>https://sermetpekin.github.io/vyos-repo/reference/verbose_on.html</loc>
   </url>
   <url>
     <loc>https://sermetpekin.github.io/vyos-repo/reference/vyos-build-checks.html</loc>
