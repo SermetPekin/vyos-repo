@@ -1,13 +1,12 @@
 
 ## vyos
-[![R-CMD-check](https://github.com/SermetPekin/vyos-repo/actions/workflows/R_CMD_check.yml/badge.svg)](https://github.com/SermetPekin/vyos-repo/actions/workflows/R_CMD_check.yml)
+[![R-CMD-check](https://github.com/spvyos/vyos/actions/workflows/R_CMD_check.yml/badge.svg)](https://github.com/spvyos/vyos/actions/workflows/R_CMD_check.yml)
 
 ## Overview
 
 vyos package is an interface to make requests from data providers. 
-Current version is able to connect to APIs of EDDS of CBRT (Central Bank of the Republic of Türkiye)
-and FRED API of FED (Federal Reserve Bank). 
-
+Current version is able to connect to APIs of [EDDS](https://evds2.tcmb.gov.tr/index.php?/evds/userDocs) of CBRT (Central Bank of the Republic of Türkiye)
+and [FRED API](https://fred.stlouisfed.org/docs/api/fred/) of FED (Federal Reserve Bank). 
 
 ## Installation
 
@@ -20,7 +19,7 @@ and FRED API of FED (Federal Reserve Bank).
 ### Development version
 ``` r
 library(devtools)
-install_github("SermetPekin/vyos-repo")
+install_github("spvyos/vyos")
 ```
 
 ## Usage
@@ -30,146 +29,101 @@ install_github("SermetPekin/vyos-repo")
 
 
 ``` r
-set_api_key( "ABCDEFGHIJKLMOP" , "evds" , "env" )
-set_api_key( "ABCDEFGHIJKLMOP" , "fred" , "env" )
-# or
-set_api_key( "ABCDEFGHIJKLMOP" , "evds" , "file" )
-set_api_key( "ABCDEFGHIJKLMOP" , "fred" , "file" )
+# Set API keys for EDDS
+set_api_key("YOUR_EDDS_API_KEY", "evds", "env")
+# Set API keys for FRED
+set_api_key("YOUR_FRED_API_KEY", "fred", "env")
+# Alternatively, you can use file-based configuration
+set_api_key("YOUR_EDDS_API_KEY", "evds", "file")
+set_api_key("YOUR_FRED_API_KEY", "fred", "file")
 
 ```
 
 ###  get_series 
 
 ``` r
+# Define a template for series
+template <- "
+    UNRATE        #fred (series)
+    bie_abreserv  #evds (table)
+    TP.AB.B1      #evds (series)
+"
 
-    
-  obj<- get_series( "UNRATE" )
-  print(obj)
-  df<- obj$data
-  print(df)
-# ->[fred]: pausing before a new request.->[fred]: pausing before a new request.
-# ======================================vyos_GETPREP=======
-#   status      : completed
-#   index       : UNRATE
-#   start_year  : 2000-01-01
-#   end_year    : 2100-01-01
-# ................... resolved [completed] ..............
-# 
-# ..................................
-#   .........> lines   .............
-# ..................................
-# # each line corresponds a different set of func and data
-#     data can be reached as below
-#         --> obj$lines$data
-#   # A tibble: 1 × 8
-#   index  source base   comments freq  fnc_str         fnc          data    
-#   <chr>  <chr>  <chr>  <chr>    <chr> <chr>           <named list> <list>  
-# 1 UNRATE fred   series " "      null  fred_series_fnc <fn>         <tibble>
-# ..................................
-#     .........> (combined) data ...
-# ..................................
-#     a combined data frame will be constructed
-#     combined data can be reached as
-#         --> obj$data
-#   # A tibble: 228 × 2
-#    date       UNRATE
-#    <date>      <dbl>
-#  1 2005-01-01    5.3
-#  2 2005-02-01    5.4
-#  3 2005-03-01    5.2
-#  4 2005-04-01    5.2
-#  5 2005-05-01    5.1
-#  6 2005-06-01    5  
-#  7 2005-07-01    5  
-#  8 2005-08-01    4.9
-#  9 2005-09-01    5  
-# 10 2005-10-01    5  
-# # ℹ 218 more rows
-# # ℹ Use `print(n = ...)` to see more rows
-# ...........................................................
-# 
-# =========================================================
-# # A tibble: 228 × 2
-#    date       UNRATE
-#    <date>      <dbl>
-#  1 2005-01-01    5.3
-#  2 2005-02-01    5.4
-#  3 2005-03-01    5.2
-#  4 2005-04-01    5.2
-#  5 2005-05-01    5.1
-#  6 2005-06-01    5  
-#  7 2005-07-01    5  
-#  8 2005-08-01    4.9
-#  9 2005-09-01    5  
-# 10 2005-10-01    5  
-# # ℹ 218 more rows
-# # ℹ Use `print(n = ...)` to see more rows
+# Fetch data based on the template
+obj <- get_series(template, start_date = "2012/05/22", cache = FALSE)
+
+# Display the results
+print(obj)
+
+======================================vyos_GETPREP=======
+  status      : completed
+  index       : 
+    UNRATE        #fred (series)
+    bie_abreserv  #evds (table)
+    TP.AB.B1      #evds (series)
+
+  start_date  : 2012/05/22
+  end_date    : 2100-01-01
+  status [completed]
+
+ lines$data
+===================
+ ! each line corresponds to a different set of func and data
+    data can be reached as below
+        --> obj$lines$data
+  # A tibble: 3 × 8
+  index        source base   comments      freq  fnc_str         fnc          data              
+  <chr>        <chr>  <chr>  <chr>         <chr> <chr>           <named list> <list>            
+1 UNRATE       fred   series fred (series) null  fred_series_fnc <fn>         <tibble [139 × 2]>
+2 bie_abreserv evds   table  evds (table)  null  evds_table_fnc  <fn>         <tibble [138 × 6]>
+3 TP.AB.B1     evds   series evds (series) null  evds_series_fnc <fn>         <tibble [138 × 2]>
+ data
+===================
+  (combined) data
+
+    a combined data frame will be constructed
+    combined data can be reached as
+        --> obj$data
+  # A tibble: 138 × 8
+   date       UNRATE TP_AB_B1 TP_AB_B2 TP_AB_B3 TP_AB_B4 TP_AB_B6 TP.AB.B1
+   <date>      <dbl>    <dbl>    <dbl>    <dbl>    <dbl>    <dbl>    <dbl>
+ 1 2012-06-01    8.2   12438.   83062.   17704.   95500.  113204.   12438.
+ 2 2012-07-01    8.2   15068.   85044.   17526.  100113.  117639.   15068.
+ 3 2012-08-01    8.1   15706.   93006.   16191.  108712.  124903.   15706.
+ 4 2012-09-01    7.8   17289.   94797    16106.  112086.  128192    17289.
+ 5 2012-10-01    7.8   17675.   99534.   14575.  117208.  131783.   17675.
+ 6 2012-11-01    7.7   18200.  100162.   15532.  118362.  133894.   18200.
+ 7 2012-12-01    7.9   19235.   99933.   18326.  119168.  137493    19235.
+ 8 2013-01-01    8     19860.  104349.   15466.  124210.  139676    19860.
+ 9 2013-02-01    7.7   19204.  104023.   14783.  123227.  138010.   19204.
+10 2013-03-01    7.5   21037.  105658.   15164.  126695.  141859.   21037.
+# ℹ 128 more rows
+# ℹ Use `print(n = ...)` to see more rows
+
+=========================================================
   ```
-
-...
+### Additional Usage Examples
 ``` r
+# Fetch data for a specific index
+o <- get_series("bie_yssk", start_date = "2010-01-01")
+print(o)
 
-    
-  template <- "
-  UNRATE 
-  bie_abreserv
-  "
-  obj <- get_series( template )
-  print( obj )
-  df <- obj$data
-  print(df )
+# Fetch data for multiple indexes using a vector or template
+index_vector <- c("TP_YSSK_A1", "TP_YSSK_A2")
+o <- get_series(index_vector)
+print(o)
 
+# Remove NA values from the data frame
+df_raw <- o$data
+df <- remove_na_safe(df_raw)
+print(df)
 
-> print( obj )
-
-#   
-# ======================================vyos_GETPREP=======
-#   status      : completed
-#   index       : 
-#   UNRATE 
-#   bie_abreserv
-#   
-#   start_date  : 2000-01-01
-#   end_date    : 2100-01-01
-# ................... resolved [completed] ..............
-# 
-# ..................................
-#   .........> lines   .............
-# ..................................
-# # each line corresponds a different set of func and data
-#     data can be reached as below
-#         --> obj$lines$data
-#   # A tibble: 2 × 8
-#   index        source base   comments freq  fnc_str         fnc          data              
-#   <chr>        <chr>  <chr>  <chr>    <chr> <chr>           <named list> <list>            
-# 1 UNRATE       fred   series " "      null  fred_series_fnc <fn>         <tibble [228 × 2]>
-# 2 bie_abreserv evds   table  " "      null  evds_table_fnc  <fn>         <tibble [287 × 6]>
-# ..................................
-#     .........> (combined) data ...
-# ..................................
-#     a combined data frame will be constructed
-#     combined data can be reached as
-#         --> obj$data
-#   # A tibble: 287 × 7
-#    date       UNRATE TP_AB_B1 TP_AB_B2 TP_AB_B3 TP_AB_B4 TP_AB_B6
-#    <date>      <dbl>    <dbl>    <dbl>    <dbl>    <dbl>    <dbl>
-#  1 2005-01-01    5.3    1592.   37095.   15254.   38687.   53941.
-#  2 2005-02-01    5.4    1618.   36652.   15178.   38270.   53448.
-#  3 2005-03-01    5.2    1592    38049.   12767.   39641.   52408.
-#  4 2005-04-01    5.2    1615.   37334.   13431.   38949.   52380.
-#  5 2005-05-01    5.1    1562.   35804.   14924.   37366.   52290.
-#  6 2005-06-01    5      1625.   39981.   15968.   41606.   57573.
-#  7 2005-07-01    5      1590.   42905.   16266.   44495.   60761.
-#  8 2005-08-01    4.9    1618.   41183.   18685.   42800.   61485.
-#  9 2005-09-01    5      1764.   41765.   19445.   43529    62974.
-# 10 2005-10-01    5      1763.   44811.   14702.   46574    61276.
-# # ℹ 277 more rows
-# # ℹ Use print(n = ...) to see more rows
-# ...........................................................
-# 
-# =========================================================
+# Create a lagged data frame
+df2 <- lag_df(df, list(TP_YSSK_A1 = 1:3, TP_YSSK_A2 = 1:6))
+print(df2)
 
 ```
+
 ``` r
   
 o <- get_series("bie_yssk" , start_date = "2010-01-01")
@@ -257,7 +211,14 @@ df_raw
 ```
 
 ###  remove_na_safe
-> removes NA values from the data frame if all the columns are NA to a certain point and after a certain point. When there is any value that is not NA in a row it continues without removing any row until all the columns of a row is NA again to protect the meaningful date sequence of the time series of the current data frame.  
+> This function removes rows from both ends of a data frame until it identifies
+a row where all columns have non-NA values. Starting from the beginning, it
+removes rows until it encounters a row with complete data at a specific row
+index (e.g., row 5).
+It then proceeds to remove rows from the end of the data frame, eliminating
+any rows with at least one NA value in any column.
+The process stops when it finds a row where all columns contain non-NA values,
+and the resulting data frame is returned.
 
 ```r 
 df <- remove_na_safe(df_raw )
@@ -282,8 +243,11 @@ df
 
 ### lag_df  
 
-> it takes a data frame and a list of column names and lag sequences, it creates a data frame with lagged values 
-of the column names given if the column name exists in data frame. 
+> The `lag_df` function creates additional columns based on a list of column names
+and lag sequences. This feature is beneficial for scenarios where you need
+varying lag selections for certain columns, allowing flexibility in specifying
+different lags for different columns or opting for no lag at all.
+
 
 ```r
 df2 <- lag_df( df , list( TP_YSSK_A1 = 1 : 3 , TP_YSSK_A2 = 1 : 6 ) )
@@ -306,7 +270,8 @@ df2
 # # ℹ Use `print(n = ...)` to see more rows
 ```
 
-> Does not require to give source name. it figures out from the index IDs given.
+> `get_series` function does not require source names for IDs. The function uses hints 
+    to figure out which sources to request from for the index IDs given.
 
 ```r 
 index_template <- "
@@ -370,7 +335,7 @@ o
 # =========================================================
 
 ```
-> individual data frames can be reached via object$lines$data 
+> individual data frames can be reached via `object$lines$data`
 
 ```r
 > o$lines
@@ -433,29 +398,30 @@ o
 # # ℹ Use `print(n = ...)` to see more rows
 ```
 
-### excel 
-
-> excel function to write all data frames of the object 
-
+### Excel export 
+> creates excel file including all data frames of the object 
 
 ```r
-> obj <- get_series( index = template_test() )
-> excel(obj , "file_name.xlsx" , "somefolder" ) 
-or 
-> excel(obj , "file_name" , "somefolder" ) 
+
+# Export data frames to an Excel file
+obj <- get_series( index = template_test() )
+excel(obj, "file_name.xlsx", "somefolder")
+
 
 ```
-## Getting api keys
+### Getting api keys
+Both data providers require API keys for access, which users can easily obtain 
+    by creating accounts on their respective websites. 
 
-## CBRT
+### EDDS (CBRT)
 
 https://evds2.tcmb.gov.tr/index.php?/evds/userDocs
 
     
-## FRED 
+### FRED (FED)
 
 https://fred.stlouisfed.org/docs/api/api_key.html
 
 
-    
+
 

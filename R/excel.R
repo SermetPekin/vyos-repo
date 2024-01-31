@@ -1,5 +1,3 @@
-
-
 #' Creates an excel file from a data.frame or a list of data.frame or from
 #' vyos_GETPREP object.
 #' @description
@@ -11,55 +9,46 @@
 #' @param .debug for internal use
 #' @param env environment
 #' @param ... for future versions
-#' @return object or list of data frame back
+#' @return it returns object or list of data frame back
 #' @export
 #' @examples
 #' \dontrun{
-#' excel( data.frame(a = 1 : 3 ) , file_name = "test1.xlsx" , folder = "." )
+#' excel(data.frame(a = 1:3), file_name = "test1.xlsx", folder = ".")
 #' }
-excel <-function(
-    dfs = null  ,
-    file_name = null   ,
-    folder = null ,
-    .debug = T  ,
-    env = rlang::caller_env() ,
-    ... ) {
-
-  excel_internal(
-    dfs = dfs  ,
-    file_name = file_name  ,
-    folder = folder ,
-    .debug = .debug  ,
-    env = env  ,
+excel <- function(
+    dfs = null,
+    file_name = null,
+    folder = null,
+    .debug = FALSE,
+    env = rlang::caller_env(),
+    ...) {
+  obj <- excel_internal(
+    dfs = dfs,
+    file_name = file_name,
+    folder = folder,
+    .debug = .debug,
+    env = env,
     ...
   )
+  inv(obj)
 }
-check_rehber <- function(df =NULL ){
-  rehber <- attr( df , "rehber")
+check_rehber <- function(df = NULL) {
+  rehber <- attr(df, "rehber")
   df2 <- df
-  if(  is.data.frame ( rehber ) ){
-    df2 <- list( data = df , rehber = rehber )
+  if (is.data.frame(rehber)) {
+    df2 <- list(data = df, rehber = rehber)
   }
   df2
 }
 
-excel2<-function( df , ...  ){
-
-  rehber <- attr( df , "rehber")
-  if(  is.data.frame ( rehber ) ){
-    df2 <- list( data = df , rehber = rehber )
+excel2 <- function(df, ...) {
+  rehber <- attr(df, "rehber")
+  if (is.data.frame(rehber)) {
+    df2 <- list(data = df, rehber = rehber)
   }
-  excel( df2 , ... )
+  excel(df2, ...)
 }
-filter_list_df <-function(liste ){
-  liste2 <- list()
-  say = 0
-  names_ =  names( liste )
-  for ( item in liste ){
-    say = say + 1
-    if( inherits( item , "data.frame" ) ) {
-      liste2[[names_[ say  ]]] = item
-    }
-  }
-  liste2
+
+filter_list_df <- function(liste) {
+  purrr::keep(liste, function(x) inherits(x, "data.frame"))
 }

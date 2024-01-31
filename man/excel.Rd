@@ -9,7 +9,7 @@ excel(
   dfs = null,
   file_name = null,
   folder = null,
-  .debug = T,
+  .debug = FALSE,
   env = rlang::caller_env(),
   ...
 )
@@ -28,7 +28,7 @@ excel(
 \item{...}{for future versions}
 }
 \value{
-object or list of data frame back
+it returns object or list of data frame back
 }
 \description{
 The excel() function creates an excel file according to the object given.
@@ -36,6 +36,6 @@ data.frame or List of data frame or vyos_GETPREP object can be passed..
 }
 \examples{
 \dontrun{
-excel( data.frame(a = 1 : 3 ) , file_name = "test1.xlsx" , folder = "." )
+excel(data.frame(a = 1:3), file_name = "test1.xlsx", folder = ".")
 }
 }

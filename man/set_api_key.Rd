@@ -21,7 +21,7 @@ if \code{file} was selected it will save api key to current folder.}
 \item{...}{for future versions}
 }
 \value{
-null
+The function has no return value.
 }
 \description{
 set_api_key
@@ -29,8 +29,8 @@ set_api_key
 \examples{
 \dontrun{
 
-set_api_key( "ABCDEFGHIJKLMOP" , "evds" , "env" )
-set_api_key( "ABCDEFGHIJKLMOP" , "fred" , "env" )
-set_api_key( "ABCDEFGHIJKLMOP" , "fred" , "file" )
+set_api_key("ABCDEFGHIJKLMOP", "evds", "env")
+set_api_key("ABCDEFGHIJKLMOP", "fred", "env")
+set_api_key("ABCDEFGHIJKLMOP", "fred", "file")
 }
 }

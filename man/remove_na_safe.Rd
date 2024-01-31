@@ -4,7 +4,7 @@
 \alias{remove_na_safe}
 \title{remove_na_safe}
 \usage{
-remove_na_safe(df , verbose = F )
+remove_na_safe(df , verbose = FALSE )
 }
 \arguments{
 \item{df}{data.frame to remove na rows from the beginning and from the end}
@@ -12,15 +12,24 @@ remove_na_safe(df , verbose = F )
 \item{verbose}{give detailed info while removing NA values}
 }
 \value{
-data.frame
+data.frame returns data.frame after removing rows if all columns are NA
+from the beginning and after
 }
 \description{
-removes rows from the beginning and end of data.frame provided that all columns
-are NA.
+This function removes rows from both ends of a data frame until it identifies
+a row where all columns have non-NA values. Starting from the beginning, it
+removes rows until it encounters a row with complete data at a specific row
+index (e.g., row 5).
+It then proceeds to remove rows from the end of the data frame, eliminating
+any rows with at least one NA value in any column.
+The process stops when it finds a row where all columns contain non-NA values,
+and the resulting data frame is returned.
 }
 \examples{
 
-df <- data.frame( a = c( NA, 2: 7 , NA ) ,
-                  b = c( NA, NA, 5, NA, 12, NA, 8, 9 ) )
-df2 <- remove_na_safe( df )
+df <- data.frame(
+  a = c(NA, 2:7, NA),
+  b = c(NA, NA, 5, NA, 12, NA, 8, 9)
+)
+df2 <- remove_na_safe(df)
 }
