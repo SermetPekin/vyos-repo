@@ -11,7 +11,7 @@ get_series(
   freq = NULL,
   cache = FALSE,
   na.remove = TRUE,
-  verbose = FALSE,
+  verbose = NULL,
   ...,
   source = c("multi", "evds", "fred"),
   base = c("multi", "series", "table"),
@@ -32,7 +32,9 @@ get_series(
 \item{na.remove}{If TRUE, NA values are removed only if all columns are NA.}
 
 \item{verbose}{If TRUE, prints information during the process; if FALSE, silently does its job.
-Gives a warning only if something goes wrong.}
+default is NULL which implies applying default verbose option. If this function is called with
+a TRUE or FALSE value it changes global verbose option for \code{vyos} package.
+If verbose option is FALSE it gives a warning only if something goes wrong.}
 
 \item{...}{Additional parameters for future versions.}
 
